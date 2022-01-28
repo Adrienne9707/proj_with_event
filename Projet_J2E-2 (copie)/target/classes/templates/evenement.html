@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"/>
+  <title>Administrator HOME PAGE</title>
+</head>
+<body>
+<div align="center">
+  <h1>Event List</h1>
+  <a href="/newEvent">Create New Event</a>
+  <br/><br/>
+  <table border="1" cellpadding="10">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Intitule</th>
+      <th>Theme</th>
+      <th>Duree</th>
+      <th>Date_debut</th>
+      <th>Nb_part_max</th>
+      <th>Description</th>
+      <th>Type_event</th>
+      <th>Action</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="evenement : ${listEvenements}">
+      <td th:text=${evenement.id}> ID </td>
+      <td th:text=${evenement.intitule}> Intitule </td>
+      <td th:text=${evenement.theme}> Theme </td>
+      <td th:text=${evenement.duree}> Duree </td>
+      <td th:text=${evenement.Date_debut}> Date_debut</td>
+      <td th:text=${evenement.nb_part_max}> Nb_part_max </td>
+      <td th:text=${evenement.description}> Description </td>
+      <td th:text=${evenement.type_event}> Type_event </td>
+      <td>
+        <a th:href="/@{'/editParticipant/' + ${evenement.id}}">Edit</a>
+        &nbsp;&nbsp;&nbsp;
+        <a th:href="/@{'/deleteParticipant/' + ${evenement.id}}">Delete</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

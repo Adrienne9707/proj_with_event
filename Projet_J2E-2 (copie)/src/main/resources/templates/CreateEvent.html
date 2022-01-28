@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Create New Participant</title>
+    <style>
+        body{
+          background-image: url(background.png);
+          font-family: 'Open Sans',sans-serif;
+          font-weight: 400;
+          font-size: 13px;
+        }
+
+        :invalid {
+          background-color: #F0DDDD;
+          border-color: #e88;
+          -webkit-box-shadow: 0 0 5px rgba(255, 0, 0, .8);
+          -moz-box-shadow: 0 0 5px rbba(255, 0, 0, .8);
+          -o-box-shadow: 0 0 5px rbba(255, 0, 0, .8);
+          -ms-box-shadow: 0 0 5px rbba(255, 0, 0, .8);
+          box-shadow:0 0 5px rgba(255, 0, 0, .8);
+        }
+
+        :required {
+          border-color: #88a;
+          -webkit-box-shadow: 0 0 5px rgba(0, 0, 255, .5);
+          -moz-box-shadow: 0 0 5px rgba(0, 0, 255, .5);
+          -o-box-shadow: 0 0 5px rgba(0, 0, 255, .5);
+          -ms-box-shadow: 0 0 5px rgba(0, 0, 255, .5);
+          box-shadow: 0 0 5px rgba(0, 0, 255, .5);
+        }
+
+        form {
+          width:300px;
+          margin: 20px auto;
+        }
+
+        input {
+          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+          border:1px solid #ccc;
+          font-size:20px;
+          width:300px;
+          min-height:30px;
+          display:block;
+          margin-bottom:15px;
+          margin-top:5px;
+          outline: none;
+
+          -webkit-border-radius:5px;
+          -moz-border-radius:5px;
+          -o-border-radius:5px;
+          -ms-border-radius:5px;
+          border-radius:5px;
+        }
+
+        input[type=submit] {
+          background:none;
+          padding:10px;
+          cursor: pointer;
+        }
+
+        label{
+          cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div align="center">
+    <h1>Create New Participant</h1>
+    <br />
+    <form action="#" th:action="@{/save}" th:object="${participant}"
+          method="post">
+        <label>Intitule  :</label>
+        <input type="text" id="intitule" name="Intitule" required>
+
+        <label>Theme :</label>
+        <input type="text" id="theme" name="theme" required>
+
+        <label>Duree :</label>
+        <input type="texte" id="duree" name="duree" required>
+
+        <label>Date_debut :</label>
+        <input type="date" id="date_debut" name="date_debut" required>
+
+        <label>Nb_part_max :</label>
+        <input type="text" id="Nb_part_max" name="Nb_part_max" required>
+
+        <label>Description :</label>
+        <input type="text" id="description" name="description" required>
+
+        <label>Type_event</label>
+        <input type="text" id="type_event" name="type_event" required>
+
+        //click to submit
+        <button type="submit">Save</button>
+    </form>
+</div>
+</body>
+</html>
